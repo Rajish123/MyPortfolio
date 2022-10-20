@@ -6,7 +6,8 @@ from .models import Contact, Project
 def home(request):
     context = {}
     projects = Project.objects.all().order_by("-created").values()[:3]
-    context['project'] = projects
+    all_projects = Project.objects.all().order_by("-created").values()[3:]
+    context = {'project':projects, 'all_projects':all_projects}
     return render(request,'portfolio/index.html',context)
 
 def about(request):
