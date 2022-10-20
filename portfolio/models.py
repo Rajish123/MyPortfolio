@@ -17,6 +17,7 @@ class Project(models.Model):
     created = models.DateTimeField(auto_now_add = True)
     updated = models.DateTimeField(auto_now = True)
     image= models.ImageField(upload_to = "ProjectImage/",default = "default.jpeg")
+    url = models.CharField(max_length = 255)
     
     def __str__(self):
         return self.title
